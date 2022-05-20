@@ -8,14 +8,14 @@ jobs:
     name: Added parameters to the workflow
     steps:
       - name: Added parameters
-        id: hello
+        id: Parameters
         uses: venkat785/java-integrate@main
         with:
           owner: 'Quest'
           repository: 'java-integrate'
           base: 'main'
-          head: 'branch'
-      # Use the output from the `hello` step
+          head: 'jsdev'
+      # Use the output from the `Parameters` step
       - name: Get the output 
-        run: echo "The output was ${{ steps.hello.outputs.output }}"
+        run: echo "The output was ${{ steps.Parameters.outputs.output }}"
         
