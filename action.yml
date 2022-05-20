@@ -8,15 +8,15 @@ inputs:
   repository:
     description: 'repository'
     required: true
-    default: 'World'
+    default: 'java-integrate'
   base:
     description: 'base'
     required: true
-    default: 'World'
+    default: 'main'
   head:
     description: 'head'
     required: true
-    default: 'World'
+    default: 'main'
 
   
 outputs:
