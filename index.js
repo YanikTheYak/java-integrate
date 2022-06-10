@@ -79,14 +79,13 @@ async function execute() {
   latestCommitSHA = commits2.data[0].sha;
 
   //const {data: { sha: branchSHA },}
-  const { data }
-      = await octokit.repos.listBranches({
+  const branches = await octokit.repos.listBranches({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
   });
 
   // Write to the log
-  console.log('\ndata = ' + data.toString() + '\n' + latestCommitSHA);
+  console.log('\ndata = ' + branches[0].sha + '\n' + latestCommitSHA);
 }
 
 execute().catch((e) => core.setFailed(e.message));
