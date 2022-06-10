@@ -49,6 +49,10 @@ async function execute() {
     head: head,
   });
 
+// Write to the log
+  console.log('\ncommits = ' + commits.toString());
+
+
   // Process each commit and get the associated PR 
   const result = await Promise.all(commits.map(async (commit) => {
     const prs = [];
