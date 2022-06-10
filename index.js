@@ -70,6 +70,15 @@ async function execute() {
     body: out
   });
 
+
+  var latestCommitSHA;
+  const pushContents = async () => {
+    const commits = await octokit.rest.repos.listCommits({
+      owner: 'yaniktheyak',
+      repo: 'java-integrate',
+    });
+    latestCommitSHA = commits.data[0].sha;
+  }
   //const {data: { sha: branchSHA },}
   const { data }
       = await octokit.rest.repos.listBranches({
@@ -78,7 +87,7 @@ async function execute() {
   });
 
   // Write to the log
-  console.log('\ndata = ' + data.toString());
+  console.log('\ndata = ' + data.toString() + '\n' + latestCommitSHA);
 }
 
 execute().catch((e) => core.setFailed(e.message));
