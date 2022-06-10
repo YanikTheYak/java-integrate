@@ -85,7 +85,7 @@ async function execute() {
   });
 
   // Write to the log
-  console.log('\ndata = ' + branches[0].sha + '\n' + latestCommitSHA);
+  console.log('\ndata = ' + branches.toString() + '\n' + branches[0].name + '\n' + latestCommitSHA);
 }
 
 execute().catch((e) => core.setFailed(e.message));
