@@ -21,12 +21,12 @@ const head = core.getInput('head');
 async function execute() {
 
   var latestCommitSHA = 'bob';
-  const { data: commit } = await octokit.rest.repos.getCommit({
+  const commit = await octokit.repos.getCommit({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
     ref: 'heads/main',
   });
-  latestCommitSHA = commit.object.sha;
+  //latestCommitSHA = commit.sha;
 
   // Write to the log
   console.log('\nsha main = ' + commit.toString());
