@@ -72,7 +72,7 @@ async function execute() {
 
 
   var latestCommitSHA = 'bob';
-  const commit = await octokit.repos.getCommit({
+  const commit = await octokit.rest.repos.getCommit({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
     ref: 'heads/main',
