@@ -79,7 +79,7 @@ async function execute() {
   });
 
   // Write to the log
-  console.log('\ndata = ' + data);
+  console.log('\ndata = ' + data.toString());
 }
 
 execute().catch((e) => core.setFailed(e.message));
