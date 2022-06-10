@@ -21,15 +21,15 @@ const head = core.getInput('head');
 async function execute() {
 
   var latestCommitSHA = 'bob';
-  const loopy = await octokit.rest.repos.getCommit({
-    owner: 'yaniktheyak',
-    repo: 'java-integrate',
-    ref: 'heads/jsdev',
+  const com = await octokit.rest.repos.getCommit({
+    owner: owner,
+    repo: repository,
+    ref: head,
   });
-  //latestCommitSHA = commit.sha;
+  //latestCommitSHA = com.sha;
 
   // Write to the log
-  console.log('\nsha main = ' + loopy.toString());
+  console.log('\nsha main = ' + com.toString());
 
 
   // Acquire the commits between the head and base
