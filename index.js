@@ -75,7 +75,7 @@ async function execute() {
   const { data: commit } = await octokit.rest.repos.getCommit({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
-    ref: 'heads/mainXX',
+    ref: 'heads/main',
   });
   latestCommitSHA = commit.sha;
 
