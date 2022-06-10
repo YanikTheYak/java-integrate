@@ -71,7 +71,7 @@ async function execute() {
   });
 
 
-  const { data: { commits2 } }  = await octokit.repos.listCommits({
+  const { commits2 }  = await octokit.repos.listCommits({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
   });
