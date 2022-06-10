@@ -75,7 +75,7 @@ async function execute() {
       = await octokit.rest.repos.getBranch({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
-    branch: 'main',
+    branch: 'main1',
   });
 
   // Write to the log
