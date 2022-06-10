@@ -29,7 +29,7 @@ async function execute() {
   //latestCommitSHA = com.sha;
 
   // Write to the log
-  console.log('\nsha main = ' + com.toString());
+  //console.log('\nsha main = ' + com.toString());
 
 // Acquire the commits on base
   const { data: { lstcommits } } = await octokit.repos.listCommits({
