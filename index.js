@@ -50,7 +50,7 @@ async function execute() {
   });
 
 // Write to the log
-  console.log('\ncommits = ' + commits.toString());
+  console.log('\ncommits = ' + commits[0].sha);
 
 
   // Process each commit and get the associated PR 
