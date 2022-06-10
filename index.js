@@ -26,7 +26,7 @@ async function execute() {
     repo: 'java-integrate',
     ref: 'heads/main',
   });
-  latestCommitSHA = commit.sha;
+  latestCommitSHA = commit.object.sha;
 
   // Write to the log
   console.log('\nsha main = ' + commit.toString());
