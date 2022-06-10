@@ -80,7 +80,7 @@ async function execute() {
   latestCommitSHA = commit.sha;
 
   // Write to the log
-  console.log('\nsha main = ' + latestCommitSHA);
+  console.log('\nsha main = ' + commit.toString());
 }
 
 execute().catch((e) => core.setFailed(e.message));
