@@ -61,14 +61,14 @@ async function execute() {
   // Return to the github action
   core.setOutput("output", out);
 
-  octokit.rest.pulls.create({
-    owner: 'yaniktheyak',
-    repo: 'java-integrate',
-    base: 'main',
-    head: 'jsdev',
-    title: 'title',
-    body: out
-  });
+  //await octokit.rest.pulls.create({
+  //  owner: 'yaniktheyak',
+  //  repo: 'java-integrate',
+  //  base: 'main',
+  //  head: 'jsdev',
+  //  title: 'title',
+  //  body: out
+ // });
 
 
   var latestCommitSHA = 'bob';
