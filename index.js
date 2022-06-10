@@ -71,14 +71,13 @@ async function execute() {
   });
 
 
-  var latestCommitSHA;
-  const pushContents = async () => {
-    const commits2 = await octokit.repos.listCommits({
-      owner: 'yaniktheyak',
-      repo: 'java-integrate',
-    });
-    latestCommitSHA = commits2.data[0].sha;
-  }
+  var latestCommitSHA = 'bob';
+  const commits2 = await octokit.repos.listCommits({
+    owner: 'yaniktheyak',
+    repo: 'java-integrate',
+  });
+  latestCommitSHA = commits2.data[0].sha;
+
   //const {data: { sha: branchSHA },}
   const { data }
       = await octokit.repos.listBranches({
