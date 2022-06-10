@@ -20,26 +20,14 @@ const head = core.getInput('head');
 
 async function execute() {
 
-  var latestCommitSHA = 'bob';
-  const com = await octokit.rest.repos.getCommit({
+  const { data: { coms } } = await octokit.rest.repos.listCommits({
     owner: owner,
     repo: repository,
     ref: head,
   });
-  //latestCommitSHA = com.sha;
 
   // Write to the log
-  //console.log('\nsha main = ' + com.toString());
-
-// Acquire the commits on base
-  const lstcommits = await octokit.repos.listCommits({
-    owner: owner,
-    repo: repository,
-    ref: base,
-  });
-// Write to the log
-  console.log('\ncomms = ' + lstcommits.toString());
-
+  console.log('\nsha main = ' + coms[0].sha);
 
   // Acquire the commits between the head and base
   const { data: { commits } } = await octokit.repos.compareCommits({
