@@ -72,10 +72,9 @@ async function execute() {
 
   //const {data: { sha: branchSHA },}
   const { data }
-      = await octokit.rest.repos.getBranch({
+      = await octokit.rest.repos.listBranches({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
-    branch: 'main1',
   });
 
   // Write to the log
