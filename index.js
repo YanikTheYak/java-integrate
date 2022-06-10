@@ -71,21 +71,23 @@ async function execute() {
   });
 
 
-  const { commits2 }  = await octokit.repos.listCommits({
-    owner: 'yaniktheyak',
-    repo: 'java-integrate',
-  });
-  const latestCommitSHA = commits2.data[0].sha;
-
+  var latestCommitSHA;
+  const pushContents = async () => {
+    const commits2 = await octokit.repos.listCommits({
+      owner: 'yaniktheyak',
+      repo: 'java-integrate',
+    });
+    latestCommitSHA = commits2.data[0].sha;
+  }
   //const {data: { sha: branchSHA },}
-  const { data2 }
+  const { data }
       = await octokit.repos.listBranches({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
   });
 
   // Write to the log
-  console.log('\ndata = ' + data2.toString() + '\n' + latestCommitSHA + '\n' + commits2);
+  console.log('\ndata = ' + data.toString() + '\n' + latestCommitSHA);
 }
 
 execute().catch((e) => core.setFailed(e.message));
