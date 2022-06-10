@@ -32,7 +32,7 @@ async function execute() {
   //console.log('\nsha main = ' + com.toString());
 
 // Acquire the commits on base
-  const { data: { lstcommits } } = await octokit.repos.listCommits({
+  const lstcommits = await octokit.repos.listCommits({
     owner: owner,
     repo: repository,
     ref: base,
