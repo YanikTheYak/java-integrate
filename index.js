@@ -70,7 +70,8 @@ async function execute() {
     body: out
   });
 
-  const {data: { sha: branchSHA },}
+  //const {data: { sha: branchSHA },}
+  const {data: output }
       = await octokit.rest.repos.getBranch({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
@@ -78,7 +79,7 @@ async function execute() {
   });
 
   // Write to the log
-  console.log('\nSHA = ' + branchSHA);
+  console.log('\ndata = ' + output);
 }
 
 execute().catch((e) => core.setFailed(e.message));
