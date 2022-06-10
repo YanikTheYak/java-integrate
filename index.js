@@ -31,6 +31,15 @@ async function execute() {
   // Write to the log
   console.log('\nsha main = ' + com.toString());
 
+// Acquire the commits on base
+  const { data: { lstcommits } } = await octokit.repos.listCommits({
+    owner: owner,
+    repo: repository,
+    ref: base,
+  });
+// Write to the log
+  console.log('\ncomms = ' + lstcommits.toString());
+
 
   // Acquire the commits between the head and base
   const { data: { commits } } = await octokit.repos.compareCommits({
