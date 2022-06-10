@@ -21,10 +21,10 @@ const head = core.getInput('head');
 async function execute() {
 
   var latestCommitSHA = 'bob';
-  const { sha:commit } = await octokit.repos.getCommit({
+  const commit = await octokit.repos.getCommit({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
-    ref: 'heads/main',
+    ref: 'heads/jsdev',
   });
   //latestCommitSHA = commit.sha;
 
