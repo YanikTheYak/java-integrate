@@ -21,7 +21,7 @@ const head = core.getInput('head');
 async function execute() {
 
   var latestCommitSHA = 'bob';
-  const commit = await octokit.repos.getCommit({
+  const { sha:commit } = await octokit.repos.getCommit({
     owner: 'yaniktheyak',
     repo: 'java-integrate',
     ref: 'heads/main',
