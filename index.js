@@ -19,12 +19,12 @@ const base = core.getInput('base');
 const head = core.getInput('head');
 
 async function execute() {
-
-  const { data: { commits } } = await octokit.rest.repos.listCommits({
-    owner: owner,
-    repo: repository,
-    ref: head,
-  });
+//
+//  const { data: { commits } } = await octokit.rest.repos.listCommits({
+//    owner: owner,
+//    repo: repository,
+//    ref: head,
+//  });
 
   // Write to the log
  // console.log('\nsha main = ' + commits2[0].sha);
