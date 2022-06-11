@@ -27,7 +27,7 @@ async function execute() {
   });
 
   // Write to the log
-  console.log('\nsha main = ' + commits[0].sha);
+ // console.log('\nsha main = ' + commits2[0].sha);
 
   // Acquire the commits between the head and base
   const { data: { commits2 } } = await octokit.repos.compareCommits({
