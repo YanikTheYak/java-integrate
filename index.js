@@ -30,7 +30,7 @@ async function execute() {
  // console.log('\nsha main = ' + commits2[0].sha);
 
   // Acquire the commits between the head and base
-  const { data: { commits2 } } = await octokit.repos.compareCommits({
+  const { data: { commits } } = await octokit.repos.compareCommits({
     owner: owner,
     repo: repository,
     base: base,
@@ -38,7 +38,7 @@ async function execute() {
   });
 
 // Write to the log
-  console.log('\ncommits = ' + commits2[0].sha);
+  console.log('\ncommits = ' + commits[0].sha);
 
 
   // Process each commit and get the associated PR 
