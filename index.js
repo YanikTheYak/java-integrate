@@ -20,17 +20,16 @@ const head = core.getInput('head');
 
 async function execute() {
 
-  const { commits } = await octokit.repos.listCommits({
+  const { data: x } = await octokit.repos.listBranches({
     owner: owner,
     repo: repository,
-    ref: head,
   });
 
   // Write to the log
-  console.log('\nsha main = ' + commits[0].sha);
+  console.log('\nsha main = ' + x[0].commit.sha);
 
   // Acquire the commits between the head and base
-  const { data: { commitsX } } = await octokit.repos.compareCommits({
+  const { data: { commits } } = await octokit.repos.compareCommits({
     owner: owner,
     repo: repository,
     base: base,
@@ -38,11 +37,11 @@ async function execute() {
   });
 
 // Write to the log
-  console.log('\ncommits = ' + commitsX[0].sha);
+  console.log('\ncommits = ' + commits[0].sha);
 
 
   // Process each commit and get the associated PR 
-  const result = await Promise.all(commitsX.map(async (commit) => {
+  const result = await Promise.all(commits.map(async (commit) => {
     const prs = [];
     const { data: associatedPulls } = await octokit.repos.listPullRequestsAssociatedWithCommit({
         owner: owner,
