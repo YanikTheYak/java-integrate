@@ -24,7 +24,7 @@ async function execute() {
     owner: owner,
     repo: repository,
   });
-  let branch = x.find(function(value, index, array) {
+  let branch = await x.find(function(value, index, array) {
     return value.name == base;
   });
 
