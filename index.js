@@ -87,16 +87,17 @@ async function execute() {
   // Return to the github action
   core.setOutput("output", out);
 
-  //await octokit.rest.pulls.create({
-  //  owner: 'yaniktheyak',
-  //  repo: 'java-integrate',
-  //  base: 'main',
-  //  head: 'jsdev',
-  //  title: 'title',
-  //  body: out
- // });
+  const { data: pr } = await octokit.rest.pulls.create({
+    owner: 'yaniktheyak',
+    repo: 'java-integrate',
+    base: 'main',
+    head: 'jsdev',
+    title: 'title',
+    body: out
+  });
 
-
+  // Write to the log
+  console.log('/nPR title = ' + pr.title);
 }
 
 execute().catch((e) => core.setFailed(e.message));
