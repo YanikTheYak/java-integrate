@@ -35,7 +35,7 @@ async function execute() {
     owner: owner,
     repo: repository,
     ref: 'heads/testbranch',
-    sha: branch.sha,
+    sha: branch.commit.sha,
   });
 
   // Write to the log
