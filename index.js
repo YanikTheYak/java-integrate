@@ -34,7 +34,7 @@ async function execute() {
   const { data: { object } } = await octokit.git.createRef({
     owner: owner,
     repo: repository,
-    ref: 'heads/testbranch',
+    ref: 'refs/heads/testbranch',
     sha: branch.commit.sha,
   });
 
