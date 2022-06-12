@@ -24,6 +24,9 @@ async function execute() {
     owner: owner,
     repo: repository,
   });
+  let branch = x.find(function(value, index, array) {
+    return value.name == base;
+  });
 
   // Write to the log
   console.log('\nbranch = ' + x[0].name + ' sha = ' + x[0].commit.sha);
