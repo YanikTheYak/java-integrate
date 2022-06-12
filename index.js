@@ -31,6 +31,16 @@ async function execute() {
   // Write to the log
   console.log('\nbranch = ' + branch.name + ' sha = ' + branch.commit.sha);
 
+  const { data: { object } } = await octokit.git.createRef({
+    owner: owner,
+    repo: repository,
+    ref: 'heads/testbranch',
+    sha: branch.sha,
+  });
+
+  // Write to the log
+  console.log('\new branch = ' + ' ' + ' sha = ' + object.sha);
+
   // Acquire the commits between the head and base
   const { data: { commits } } = await octokit.repos.compareCommits({
     owner: owner,
