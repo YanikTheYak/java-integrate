@@ -1,5 +1,8 @@
-on: [push] #on every push
+name: Deploy
 
+on:
+  workflow_dispatch:
+  
 jobs:
   adding-parameters:
     runs-on: ubuntu-latest
