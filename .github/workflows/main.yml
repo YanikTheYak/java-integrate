@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Step - Create the PR
         id: CreatePR
-        uses: erwin-inc/zeta-development@main
+        uses: YanikTheYak/java-integrate@main
         with:
           owner: ${{ github.event.inputs.owner }}
           repository: ${{ github.event.inputs.repository }}
