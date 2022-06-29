@@ -2,7 +2,25 @@ name: CreatePR
 
 on:
   workflow_dispatch:
-  
+
+inputs:
+  owner:
+    description: 'owner'
+    required: true
+    default: 'YanikTheYak'
+  repository:
+    description: 'repository'
+    required: true
+    default: 'java-integrate'
+  base:
+    description: 'base'
+    required: true
+    default: 'main'
+  head:
+    description: 'head'
+    required: true
+    default: 'test-2'
+    
 jobs:
   adding-parameters:
     runs-on: ubuntu-latest
@@ -12,10 +30,10 @@ jobs:
         id: Parameters
         uses: yaniktheyak/java-integrate@main
         with:
-          owner: 'yaniktheyak'
-          repository: 'java-integrate'
-          base: 'main'
-          head: 'test-2'
+          owner: owner
+          repository: repository
+          base: base
+          head: head
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
