@@ -30,10 +30,10 @@ jobs:
         id: Parameters
         uses: yaniktheyak/java-integrate@main
         with:
-          owner: owner
-          repository: repository
-          base: base
-          head: head
+          owner: ${{ github.event.inputs.owner }}
+          repository: ${{ github.event.inputs.repository }}
+          base: ${{ github.event.inputs.base }}
+          head: ${{ github.event.inputs.head }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
