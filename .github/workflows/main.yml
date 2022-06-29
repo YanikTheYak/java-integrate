@@ -5,30 +5,30 @@ on:
 
     inputs:
       owner:
-        description: 'owner'
+        description: 'Account Owner (erwin-inc)'
         required: true
-        default: 'YanikTheYak'
+        default: 'erwin-inc'
       repository:
-        description: 'repository'
+        description: 'This repository'
         required: true
-        default: 'java-integrate'
+        default: 'zeta-development'
       base:
-        description: 'base'
+        description: 'Base branch (to merge into)'
         required: true
-        default: 'main'
+        default: 'master'
       head:
-        description: 'head'
+        description: 'Head branch (to merge from - Release/xx.xx.xx)'
         required: true
-        default: 'test-2'
+        default: ''
 
 jobs:
   adding-parameters:
     runs-on: ubuntu-latest
-    name: Added parameters to the workflow
+    name: Run JS to create PR
     steps:
-      - name: Added parameters
-        id: Parameters
-        uses: yaniktheyak/java-integrate@main
+      - name: Step - Create the PR
+        id: CreatePR
+        uses: erwin-inc/zeta-development@main
         with:
           owner: ${{ github.event.inputs.owner }}
           repository: ${{ github.event.inputs.repository }}
@@ -36,8 +36,8 @@ jobs:
           head: ${{ github.event.inputs.head }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      # Use the output from the `Parameters` step
-      - name: Get the output 
-        run: echo "The output was ${{ steps.Parameters.outputs.output }}"
-        
+
+      # Use the output from the `CreatePR` step
+      - name: Step - Get the output
+        run: echo "The output was ${{ steps.CreatePR.outputs.output }}"
+

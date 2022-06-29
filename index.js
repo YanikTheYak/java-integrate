@@ -12,7 +12,7 @@ const octokit = new Octokit({
   auth: process.env['GITHUB_TOKEN'],
 });
 
-// `parameters` input defined 
+// `parameters` input defined
 const owner = core.getInput('owner');
 const repository = core.getInput('repository');
 const base = core.getInput('base');
@@ -28,11 +28,11 @@ async function execute() {
     head: head,
   });
 
-// Write to the log
+  // Write to the log
   console.log('\ncommits = ' + commits[0].sha);
 
 
-  // Process each commit and get the associated PR 
+  // Process each commit and get the associated PR
   const result = await Promise.all(commits.map(async (commit) => {
     const prs = [];
     const { data: associatedPulls } = await octokit.repos.listPullRequestsAssociatedWithCommit({
@@ -54,7 +54,7 @@ async function execute() {
 
   // Process each PRs details into a single string
   var out = head + '\n';
-  
+
   result.forEach((resultItem) => {
       const pr = resultItem.prs[resultItem.prs.length - 1];
       const url = (pr) ? pr.url : 'No PR';
@@ -63,6 +63,7 @@ async function execute() {
 
   // Write to the log
   console.log(out);
+
   // Return to the github action
   core.setOutput("output", out);
 

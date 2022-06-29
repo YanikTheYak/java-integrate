@@ -1,23 +1,23 @@
-name: 'adding parameters to the workflow'
-description: 'Github action will have 4 parameters while executing'
+name: 'CreatePR'
+description: 'Creates a PR to merge head into base'
 inputs:
   owner:
-    description: 'owner'
+    description: 'Account Owner (erwin-inc)'
     required: true
-    default: 'YanikTheYak'
+    default: 'erwin-inc'
   repository:
-    description: 'repository'
+    description: 'This repository'
     required: true
-    default: 'java-integrate'
+    default: 'zeta-development'
   base:
-    description: 'base'
+    description: 'Base branch (to merge into)'
     required: true
-    default: 'main'
+    default: 'master'
   head:
-    description: 'head'
+    description: 'Head branch (to merge from - Release/xx.xx.xx)'
     required: true
-    default: 'test-2'
-  
+    default: ''
+
 outputs:
   output: # id of output
     description: 'echo output'
