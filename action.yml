@@ -4,7 +4,7 @@ inputs:
   owner:
     description: 'owner'
     required: true
-    default: 'World'
+    default: 'YanikTheYak'
   repository:
     description: 'repository'
     required: true
@@ -16,7 +16,7 @@ inputs:
   head:
     description: 'head'
     required: true
-    default: 'main'
+    default: 'test-2'
   
 outputs:
   output: # id of output
