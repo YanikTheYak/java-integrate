@@ -20,27 +20,6 @@ const head = core.getInput('head');
 
 async function execute() {
 
-  const { data: x } = await octokit.repos.listBranches({
-    owner: owner,
-    repo: repository,
-  });
-  let branch = await x.find(function(value, index, array) {
-    return value.name == base;
-  });
-
-  // Write to the log
-  console.log('\nbranch = ' + branch.name + ' sha = ' + branch.commit.sha);
-
-  const { data: { object } } = await octokit.git.createRef({
-    owner: owner,
-    repo: repository,
-    ref: 'refs/heads/testbranch',
-    sha: branch.commit.sha,
-  });
-
-  // Write to the log
-  console.log('\new branch = ' + ' ' + ' sha = ' + object.sha);
-
   // Acquire the commits between the head and base
   const { data: { commits } } = await octokit.repos.compareCommits({
     owner: owner,
@@ -88,11 +67,11 @@ async function execute() {
   core.setOutput("output", out);
 
   const { data: pr } = await octokit.rest.pulls.create({
-    owner: 'yaniktheyak',
-    repo: 'java-integrate',
-    base: 'main',
-    head: 'jsdev',
-    title: 'title',
+    owner: owner,
+    repo: repository,
+    base: base,
+    head: head,
+    title: 'Merge ' + head + ' --> ' + base,
     body: out
   });
 
