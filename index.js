@@ -53,7 +53,7 @@ async function execute() {
   }));
 
   // Process each PRs details into a single string
-  var out = 'Owner:' + owner +'\nRepository:' + repository + '\nBase:' + base + '\nHead:' + head + '\n';
+  var out = head + '\n';
   
   result.forEach((resultItem) => {
       const pr = resultItem.prs[resultItem.prs.length - 1];
