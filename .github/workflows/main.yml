@@ -3,24 +3,24 @@ name: CreatePR
 on:
   workflow_dispatch:
 
-inputs:
-  owner:
-    description: 'owner'
-    required: true
-    default: 'YanikTheYak'
-  repository:
-    description: 'repository'
-    required: true
-    default: 'java-integrate'
-  base:
-    description: 'base'
-    required: true
-    default: 'main'
-  head:
-    description: 'head'
-    required: true
-    default: 'test-2'
-    
+    inputs:
+      owner:
+        description: 'owner'
+        required: true
+        default: 'YanikTheYak'
+      repository:
+        description: 'repository'
+        required: true
+        default: 'java-integrate'
+      base:
+        description: 'base'
+        required: true
+        default: 'main'
+      head:
+        description: 'head'
+        required: true
+        default: 'test-2'
+
 jobs:
   adding-parameters:
     runs-on: ubuntu-latest
